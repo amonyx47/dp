@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/loader.css">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <title>Links testing</title>
+</head>
+<body onload="loadingFunction()">
+<div class="container">
+    <h1>Page tested: <a th:text="${pageTested}" th:href="${pageTested}"></a></h1>
+    <div class="row">
+        <div class="col-6">
+            <h2>Firefox (results:<span th:text="${#lists.size(firefoxLinks)}"></span>), load time: <span
+                    th:text="${firefoxLoadTime}">time</span></h2>
+            <table class="table-bordered table-hover table-responsive">
+                <thead>
+                <tr>
+                    <td>Label</td>
+                    <td>Href</td>
+                    <td>Validation</td>
+                    <td>Response</td>
+                </tr>
+                </thead>
+                <tr th:each="link : ${firefoxLinks}">
+                    <td th:text="${link.label}"></td>
+                    <td><a th:text="${link.href}" th:href="${link.href}"></a></td>
+                    <td th:text="${link.validation}"></td>
+                    <td th:text="${link.responseStatus}"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-6">
+            <h2>Chrome (results:<span th:text="${#lists.size(chromeLinks)}"></span>), load time: <span
+                    th:text="${chromeLoadTime}">time</span></h2>
+            <table class="table-bordered table-hover table-responsive">
+                <thead>
+                <tr>
+                    <td>Label</td>
+                    <td>Href</td>
+                    <td>Validation</td>
+                    <td>Response</td>
+                </tr>
+                </thead>
+                <tr th:each="link : ${chromeLinks}">
+                    <td th:text="${link.label}"></td>
+                    <td><a th:text="${link.href}" th:href="${link.href}"></a></td>
+                    <td th:text="${link.validation}"></td>
+                    <td th:text="${link.responseStatus}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="loader"></div>
+<script src="/js/loaderScript.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/tether.min.js"></script>
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+</div>
+</body>
+</html>

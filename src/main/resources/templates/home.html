@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
+<head>
 <link>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <title>Test index page of app</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/loader.css">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <title>Index - Diploma</title>
 </head>
-<body>
+<body onload="loadingFunction()">
 <div class="container">
-    <h1>Hello !</h1>
+    <h1>Main Page...</h1>
     <p>Welcome to <span th:text="${appName}">Our App</span></p>
-    <button type="button" class="btn btn-primary">Primary</button>
+    <table>
+        <tr>
+            <td>
+                <button type="button" class="btn btn-primary btn-large btn-block"
+                        onclick="window.location.href='links.html'">Test Links
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary btn-large btn-block"
+                        onclick="window.location.href='validateHTML.html'">Validate HTML
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" class="btn btn-primary btn-large btn-block"
+                        onclick="window.location.href='validateCSS.html'">Validate CSS
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary btn-large btn-block"
+                        onclick="window.location.href='validateJS.html'">Validate JS
+                </button>
+            </td>
+        </tr>
+    </table>
 </div>
-<script src="../js/tether.min.js"></script>
-<script src="../js/jquery-3.2.1.slim.min.js"></script>
+<div id="loader"></div>
+<script src="/js/loaderScript.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/tether.min.js"></script>
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
 </body>
 </html>
